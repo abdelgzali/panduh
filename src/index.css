@@ -95,8 +95,9 @@ header#header {
 }
 
 header#header > img {
-  width: 30px;
+  width: 25px;
   height: auto;
+  margin: auto 0;
   padding-right: 0.625rem;
 }
 
