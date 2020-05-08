@@ -12,14 +12,7 @@ body {
   font-family: 'Roboto', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-#root {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #f4f4f8;
+  box-sizing: border-box;
 }
 
 input {
@@ -60,9 +53,23 @@ button {
   transition: all 0.3s ease 0s;
 }
 
+button.btn-secondary {
+  background-color: #2ecc71;
+  border-radius: 50px;
+  font-size: 1rem;
+}
+
 button:hover {
   box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.1);
   filter: brightness(120%);
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f4f4f8;
 }
 
 #App {
@@ -73,6 +80,7 @@ button:hover {
   width: 100%;
   max-width: 768px;
   padding: 1rem;
+  margin-top: 4rem;
 }
 
 header#header {
@@ -83,6 +91,13 @@ header#header {
   height: 3rem;
   display: flex;
   justify-content: center;
+  margin-top: 1rem;
+}
+
+header#header > img {
+  width: 30px;
+  height: auto;
+  padding-right: 0.625rem;
 }
 
 #search {
@@ -98,6 +113,10 @@ header#header {
   display: flex;
 }
 
+#search-bar {
+  margin-bottom: 0.325rem;
+}
+
 #search-bar > input {
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
@@ -107,6 +126,13 @@ header#header {
 #search-bar > input + button {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
+}
+
+.note {
+  padding-left: 1rem;
+  font-size: 0.75rem;
+  text-transform: lowercase;
+  color: #999;
 }
 
 #search-ingredients {
@@ -119,8 +145,39 @@ header#header {
   background-color: var(--primary-black);
   color: #ffffff;
   padding: 0.625rem 1rem;
+  border-radius: 50px;
 }
 
 #search-ingredients > li span {
-  padding-left: 0.325rem;
+  padding-left: 0.625rem;
+  cursor: pointer;
+}
+
+#recipes {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#recipes > button:first-of-type {
+  margin: 0 auto 2rem;
+  padding: 0.625rem 2rem;
+}
+
+#recipes ul li {
+  flex-direction: column;
+}
+
+#recipes ul li img {
+  margin-top: 1rem;
+}
+
+.recipe-card {
+  background-color: #ffffff;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  margin: 1rem auto;
 }

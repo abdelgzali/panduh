@@ -4,7 +4,7 @@ import "./index.css";
 
 // Components
 import Recipes from "./components/Recipes";
-import Header from './components/Header';
+import Header from "./components/Header";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -19,22 +19,22 @@ function App() {
 
   const addIngredients = () => {
     if (userInput) {
-      console.log('input found')
+      console.log("input found");
       let updatedIngr = [...ingredients];
       updatedIngr.push(userInput);
       setIngredients(updatedIngr);
-    };
+    }
   };
 
   const removeIngredient = (index) => {
     const updatedIngredients = [...ingredients];
     updatedIngredients.splice(index, 1);
-    setIngredients([...ingredients].splice(index, 1));
-  }
+    setIngredients(updatedIngredients);
+  };
 
   useEffect(() => {
     updateUserInput("");
-  }, [ingredients])
+  }, [ingredients]);
 
   return (
     <div id="App">
@@ -45,22 +45,26 @@ function App() {
             placeholder="ex. chicken, flour, apples..."
             value={userInput}
             onChange={(e) => updateUserInput(e.target.value)}
-            onKeyPress={(e) => { if (e.key === 'Enter') addIngredients()}}
+            onKeyPress={(e) => {
+              if (e.key === "Enter") addIngredients();
+            }}
           ></input>
-          <button onClick={() => addIngredients() }>&#43;</button>
+          <button onClick={() => addIngredients()}>&#43;</button>
         </div>
+        <p class="note">Minimum of 2 ingredients</p>
         <ul id="search-ingredients">
-          {ingredients.map((ingr, index) => {
+          {ingredients.length > 0 &&
+            ingredients.map((ingr, index) => {
               return (
-              <li key={index}>
-                {ingr}
-                <span onClick={(e) => removeIngredient(index)}>&times;</span>
-              </li>
-              )
+                <li key={index}>
+                  {ingr}
+                  <span onClick={(e) => removeIngredient(index)}>&times;</span>
+                </li>
+              );
             })}
         </ul>
       </section>
-      <Recipes ingredients={ingredients} setIngredients={setIngredients}/>
+      <Recipes ingredients={ingredients} setIngredients={setIngredients} />
     </div>
   );
 }

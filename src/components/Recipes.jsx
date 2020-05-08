@@ -8,17 +8,18 @@ function Recipes(props) {
     const apiKey = "f80b0799b2304f429cc6a73e5ebe6bc9";
     const url = `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${apiKey}&ingredients=${ingredientsString}&number=5`;
     try {
-      console.log(url)
+      console.log(url);
       const req = await fetch(url);
       const res = await req.json();
       console.log(res);
       setRecipes(res);
-    } catch(err) {
+    } catch (err) {
       console.log(err);
     }
   };
 
   const stringifyIngredients = () => {
+    console.log(props.ingredients);
     if (props.ingredients.length) {
       let str = props.ingredients[0];
       let additionalIngredients = [...props.ingredients];
@@ -32,24 +33,29 @@ function Recipes(props) {
     }
   };
 
-  useEffect(() => {
-    stringifyIngredients();
-  }, [props.ingredients]);
+  // useEffect(() => {
+  //   stringifyIngredients();
+  // }, [props.ingredients]);
 
   useEffect(() => {
-    getRecipeJson();
+    if (props.ingredients.length > 1) getRecipeJson();
   }, [ingredientsString]);
 
   return (
     <div id="recipes">
+      <button className="btn-secondary" onClick={(e) => stringifyIngredients()}>
+        Find Recipes
+      </button>
       <ul>
-        { recipes && recipes.map((recipe, index) => {
-          return (
-            <li key={index}>
-              {recipe.title}
-            </li>
-          )
-        })}
+        {recipes.length > 0 &&
+          recipes.map((recipe, index) => {
+            return (
+              <li key={index} className="recipe-card">
+                {recipe.title}
+                <img src={recipe.image} alt="recipe-image"></img>
+              </li>
+            );
+          })}
       </ul>
     </div>
   );
