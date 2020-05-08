@@ -104,7 +104,8 @@ header#header > img {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 80%;
+  width: 100%;
+
   margin-bottom: 3rem;
 }
 
@@ -137,11 +138,12 @@ header#header > img {
 
 #search-ingredients {
   justify-content: center;
-  padding: 1rem;
+  padding: 1rem 0;
+  flex-flow: row wrap;
 }
 
 #search-ingredients > li {
-  margin: 0 0.625rem;
+  margin: 0.325rem 0.625rem;
   background-color: var(--primary-black);
   color: #ffffff;
   padding: 0.625rem 1rem;
