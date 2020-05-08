@@ -51,7 +51,7 @@ function App() {
           ></input>
           <button onClick={() => addIngredients()}>&#43;</button>
         </div>
-        <p class="note">Minimum of 2 ingredients</p>
+        <p class="note">Minimum of 2 ingredients, 1 at a time</p>
         <ul id="search-ingredients">
           {ingredients.length > 0 &&
             ingredients.map((ingr, index) => {
