@@ -6,7 +6,7 @@ function Recipes(props) {
 
   const getRecipeJson = async () => {
     const apiKey = "f80b0799b2304f429cc6a73e5ebe6bc9";
-    const url = `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${apiKey}&ingredients=${ingredientsString}&number=5`;
+    const url = `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${apiKey}&ingredients=${ingredientsString}&number=10`;
     try {
       console.log(url);
       const req = await fetch(url);
