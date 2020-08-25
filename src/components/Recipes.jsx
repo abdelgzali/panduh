@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import RecipeCard from './RecipeCard';
 
 function Recipes(props) {
   const [recipes, setRecipes] = useState([]);
@@ -50,9 +51,8 @@ function Recipes(props) {
         {recipes.length > 0 &&
           recipes.map((recipe, index) => {
             return (
-              <li key={index} className="recipe-card">
-                {recipe.title}
-                <img src={recipe.image} alt="recipe-image"></img>
+              <li key={index}>
+                <RecipeCard recipe={recipe}></RecipeCard>
               </li>
             );
           })}

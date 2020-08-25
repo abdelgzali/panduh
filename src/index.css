@@ -167,7 +167,7 @@ header#header > img {
   padding: 0.625rem 2rem;
 }
 
-#recipes ul li {
+#recipes ul li .recipe-card {
   flex-direction: column;
 }
 
