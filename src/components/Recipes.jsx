@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
 import RecipeCard from './RecipeCard';
+import Modal from './Modal';
 
 function Recipes(props) {
   const [recipes, setRecipes] = useState([]);
+  const [activeRecipe, setActiveRecipe] = useState(null);
   const [ingredientsString, setIngredientsString] = useState("");
+  const [showModal, toggleModal] = useState(false);
 
   const getRecipeJson = async () => {
     const apiKey = "f80b0799b2304f429cc6a73e5ebe6bc9";
@@ -34,9 +37,9 @@ function Recipes(props) {
     }
   };
 
-  // useEffect(() => {
-  //   stringifyIngredients();
-  // }, [props.ingredients]);
+  useEffect(() => {
+    toggleModal(!showModal);
+  }, [activeRecipe]);
 
   useEffect(() => {
     if (props.ingredients.length > 1) getRecipeJson();
@@ -52,11 +55,12 @@ function Recipes(props) {
           recipes.map((recipe, index) => {
             return (
               <li key={index}>
-                <RecipeCard recipe={recipe}></RecipeCard>
+                <RecipeCard recipe={recipe} setActiveRecipe={setActiveRecipe}></RecipeCard>
               </li>
             );
           })}
       </ul>
+      <Modal showModal={showModal} toggleModal={toggleModal} content={activeRecipe}></Modal>
     </div>
   );
 }

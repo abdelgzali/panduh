@@ -5,7 +5,7 @@ const Modal = ({showModal, toggleModal, content}) => {
   return (
     <div className={modalClassName}>
       <section className="modal-body">
-        <h3>{content.title}</h3>
+        <h3>{content && content.title}</h3>
         <button onClick={() => {toggleModal(!showModal)}}>x</button>
       </section>
     </div>

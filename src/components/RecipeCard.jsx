@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from 'react';
 
-import Modal from './Modal';
-
-function RecipeCard({recipe}) {
-  const [modalToggled, toggleModal] = useState(false);
+function RecipeCard({recipe, setActiveRecipe}) {
+  
   return (
     <div className="recipe-card">
       {recipe.title}
       <img src={recipe.image} alt="recipe-image"></img>
-      <button onClick={() => {toggleModal(!modalToggled)}}>show more</button>
-      <Modal showModal={modalToggled} toggleModal={toggleModal} content={recipe}></Modal>
+      <button onClick={() => {setActiveRecipe(recipe)}}>show more</button>
     </div>
   )
 }
