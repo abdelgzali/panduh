@@ -47,12 +47,13 @@ ul {
   list-style-type: none;
 }
 
-button {
+button,
+.btn {
   background-color: var(--primary-black);
   color: #ffffff;
   border: none;
   padding: 0.625rem 1.325rem;
-  border-radius: 10px;
+  border-radius: 50px;
   cursor: pointer;
   transition: all 0.3s ease 0s;
 }
@@ -132,6 +133,8 @@ header#header > img {
 #search-bar > input + button {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 .note {
@@ -152,7 +155,7 @@ header#header > img {
   background-color: var(--primary-black);
   color: #ffffff;
   padding: 0.625rem 1rem;
-  border-radius: 50px;
+  border-radius: 10px;
 }
 
 #search-ingredients > li span {
@@ -176,7 +179,7 @@ header#header > img {
 }
 
 #recipes ul li img {
-  margin-top: 1rem;
+  margin: 1rem 0;
 }
 
 .recipe-card {
@@ -208,6 +211,11 @@ header#header > img {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
 }
 
 .display-block {
