@@ -38,7 +38,7 @@ function Recipes(props) {
   };
 
   useEffect(() => {
-    toggleModal(!showModal);
+    if (activeRecipe) toggleModal(!showModal);
   }, [activeRecipe]);
 
   useEffect(() => {
