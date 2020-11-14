@@ -42,6 +42,10 @@ function Recipes(props) {
   }, [activeRecipe]);
 
   useEffect(() => {
+    if(!showModal) setActiveRecipe(null);
+  }, [showModal]);
+
+  useEffect(() => {
     if (props.ingredients.length > 1) getRecipeJson();
   }, [ingredientsString]);
 
@@ -55,12 +59,12 @@ function Recipes(props) {
           recipes.map((recipe, index) => {
             return (
               <li key={index}>
-                <RecipeCard recipe={recipe} setActiveRecipe={setActiveRecipe}></RecipeCard>
+                <RecipeCard recipe={recipe} setActiveRecipe={setActiveRecipe} showMore={true}></RecipeCard>
               </li>
             );
           })}
       </ul>
-      <Modal showModal={showModal} toggleModal={toggleModal} content={activeRecipe}></Modal>
+      <Modal showModal={showModal} toggleModal={toggleModal} recipe={activeRecipe}></Modal>
     </div>
   );
 }

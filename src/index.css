@@ -192,6 +192,10 @@ header#header > img {
   margin: 1rem auto;
 }
 
+.recipe-card > div {
+  text-align: center;
+}
+
 /* MODAL */
 .modal {
   position: fixed;
@@ -224,4 +228,19 @@ header#header > img {
 
 .display-none {
   display: none;
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: var(--primary-black);
+  background-color: transparent;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.modal h3,
+.modal h4 {
+  margin-bottom: 1rem;
 }
